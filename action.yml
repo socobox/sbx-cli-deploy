@@ -16,11 +16,9 @@ inputs:
   username: # id of input
     description: 'the key of the folder to make a deploy'
     required: true
-    default: 'carlos'
   password: # id of input
     description: 'the key of the folder to make a deploy'
     required: true
-    default: 'cavschamp1'
 outputs:
   time: # output will be available to future steps
     description: 'The message to output'

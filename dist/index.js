@@ -1390,7 +1390,7 @@ async function run() {
 		const ms = core.getInput('milliseconds');
 		const context = github.context;
 		await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
-		await exec.exec(`npm i -g sbx-cli`);
+		await exec.exec(`npm i -g sbxcloud-cli`);
 		await exec.exec(
 			`sbx-cli deploy ./README.md ${core.getInput('folder')} ${core.getInput(
 				'domain'
