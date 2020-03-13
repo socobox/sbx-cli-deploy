@@ -11,7 +11,7 @@ async function run() {
 		await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
 		await exec.exec(`npm i -g sbxcloud-cli`);
 		await exec.exec(
-			`sbx-cli deploy ./README.md ${core.getInput('folder')} ${core.getInput(
+			`sbxcloud-cli deploy ./README.md ${core.getInput('folder')} ${core.getInput(
 				'domain'
 			)} --username=${core.getInput('username')} --password=${core.getInput(
 				'password'
