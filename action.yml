@@ -1,12 +1,28 @@
 name: 'Wait'
 description: 'Wait a designated number of milliseconds'
 inputs:
-  milliseconds:  # id of input
+  milliseconds: # id of input
     description: 'number of milliseconds to wait'
     required: true
     default: '1000'
+  folder: # id of input
+    description: 'the key of the folder to make a deploy'
+    required: true
+    default: '2c18c178-8430-4c76-aa55-01815b1f5901'
+  domain: # id of input
+    description: 'the key of the folder to make a deploy'
+    required: true
+    default: '175'
+  username: # id of input
+    description: 'the key of the folder to make a deploy'
+    required: true
+    default: 'carlos'
+  password: # id of input
+    description: 'the key of the folder to make a deploy'
+    required: true
+    default: 'cavschamp1'
 outputs:
-  time: # output will be available to future steps 
+  time: # output will be available to future steps
     description: 'The message to output'
 runs:
   using: 'node12'

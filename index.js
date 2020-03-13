@@ -8,7 +8,15 @@ async function run() {
 	try {
 		const ms = core.getInput('milliseconds');
 		const context = github.context;
-		await exec.exec(`echo ${JSON.stringify(context)}`);
+		await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
+		await exec.exec(`npm i -g sbx-cli`);
+		await exec.exec(
+			`sbx-cli deploy ./README.md ${core.getInput('folder')} ${core.getInput(
+				'domain'
+			)} --username=${core.getInput('username')} --password=${core.getInput(
+				'password'
+			)} --confirmation`
+		);
 
 		core.debug(new Date().toTimeString());
 		await wait(parseInt(ms));
