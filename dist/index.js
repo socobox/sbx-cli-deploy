@@ -1387,23 +1387,17 @@ const github = __webpack_require__(469);
 // most @actions toolkit packages have async methods
 async function run() {
 	try {
-		const ms = core.getInput('milliseconds');
 		const context = github.context;
 		await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
 		await exec.exec(`npm i -g sbxcloud-cli`);
 		await exec.exec(
-			`sbxcloud-cli deploy ./README.md ${core.getInput('folder')} ${core.getInput(
+			`sbxcloud-cli deploy ${core.getInput('path')} ${core.getInput('folder')} ${core.getInput(
 				'domain'
 			)} --username=${core.getInput('username')} --password=${core.getInput(
 				'password'
 			)} --confirmation`
 		);
-
-		core.debug(new Date().toTimeString());
-		await wait(parseInt(ms));
-		core.debug(new Date().toTimeString());
-
-		core.setOutput('time', new Date().toTimeString());
+		process.exit(0);
 	} catch (error) {
 		core.setFailed(error.message);
 	}

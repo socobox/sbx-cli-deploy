@@ -1,23 +1,20 @@
 name: 'Wait'
 description: 'Wait a designated number of milliseconds'
 inputs:
-  milliseconds: # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
   folder: # id of input
     description: 'the key of the folder to make a deploy'
     required: true
-    default: '2c18c178-8430-4c76-aa55-01815b1f5901'
   domain: # id of input
-    description: 'the key of the folder to make a deploy'
+    description: 'the domain on sbx to make a deploy'
     required: true
-    default: '175'
   username: # id of input
-    description: 'the key of the folder to make a deploy'
+    description: 'the username to make deploy'
     required: true
   password: # id of input
-    description: 'the key of the folder to make a deploy'
+    description: 'the password'
+    required: true
+  path: # id of input
+    description: 'Folder path to make deploy'
     required: true
 outputs:
   time: # output will be available to future steps
