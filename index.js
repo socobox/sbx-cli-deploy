@@ -5,10 +5,14 @@ const github = require('@actions/github');
 
 // most @actions toolkit packages have async methods
 async function run() {
+	const context = github.context;
+	await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
+	await exec.exec(`npm i -g sbxcloud-cli`);
+	await runDeploy(0 )
+}
+
+async function runDeploy( attempts) {
 	try {
-		const context = github.context;
-		await exec.exec(`echo ${JSON.stringify(context.repo.repo)}`);
-		await exec.exec(`npm i -g sbxcloud-cli`);
 		await exec.exec(
 			`sbxcloud-cli deploy ${core.getInput('path')} ${core.getInput('folder')} ${core.getInput(
 				'domain'
@@ -17,9 +21,15 @@ async function run() {
 			)} --confirmation`
 		);
 		process.exit(0);
-	} catch (error) {
-		core.setFailed(error.message);
+	}catch (error){
+		if (core.getInput('attempts') && parseInt(core.getInput('attempts')) > attempts){
+			await runDeploy(attempts+1)
+		}else{
+			core.setFailed(error.message);
+		}
+
 	}
+
 }
 
 run();

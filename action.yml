@@ -13,6 +13,9 @@ inputs:
   password: # id of input
     description: 'the password'
     required: true
+  attempts: # id of input
+    description: '# attempts for deploy'
+    required: true
   path: # id of input
     description: 'Folder path to make deploy'
     required: true
