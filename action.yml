@@ -12,7 +12,7 @@ inputs:
     required: true
   password: # id of input
     description: 'the password'
-    required: true
+    required: false
   attempts: # id of input
     description: '# attempts for deploy'
     required: true

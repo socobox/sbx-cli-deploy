@@ -22,7 +22,7 @@ async function runDeploy( attempts) {
 		);
 		process.exit(0);
 	}catch (error){
-		if (core.getInput('attempts') && parseInt(core.getInput('attempts')) > attempts){
+		if (core.getInput('attempts') &&  core.getInput('attempts') !== '' &&  parseInt(core.getInput('attempts')) > attempts){
 			await runDeploy(attempts+1)
 		}else{
 			core.setFailed(error.message);
